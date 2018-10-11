@@ -1,0 +1,4 @@
+node_modules/
+esm5/
+fesm5/
+bundles/
