@@ -32,6 +32,11 @@ sourcemap-codec@^1.4.1:
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.3.tgz#0ba615b73ec35112f63c2f2d9e7c3f87282b0e33"
   integrity sha512-vFrY/x/NdsD7Yc8mpTJXuao9S8lq08Z/kOITHz6b7YbfI9xL8Spe5EvSQUHOI7SbpY8bRPr0U3kKSsPuqEGSfA==
 
+tslib@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
+  integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
+
 typescript@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.1.2.tgz#c03a5d16f30bb60ad8bb6fe8e7cb212eedeec950"

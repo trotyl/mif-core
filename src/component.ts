@@ -9,7 +9,7 @@ export interface StateChanges<S> {
   previous: Partial<S>
 }
 
-export abstract class Component<S> {
+export abstract class Component<S = any> {
   state: Partial<S> = {}
   node!: Node
 

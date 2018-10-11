@@ -5,7 +5,8 @@ module.exports = function pkgInfo(packageJson) {
   return {
     name: 'package-info', // this name will show up in warnings and errors
     renderChunk(code, { modules, exports, imports, fileName, isEntry }) {
-      fs.writeFileSync(`mif-meta.json`, JSON.stringify({ imports }), { encoding: 'utf8' })
+      const meta = JSON.stringify({ imports: imports.filter(i => !i.startsWith('mif-demo')) })
+      fs.writeFileSync(`mif-meta.json`, meta, { encoding: 'utf8' })
 
       const str = new MagicString(code, { filename: fileName })
       
@@ -13,10 +14,10 @@ module.exports = function pkgInfo(packageJson) {
       for (const i of imports) {
         const version = (packageJson.dependencies && packageJson.dependencies[i]) || 
           (packageJson.peerDependencies && packageJson.peerDependencies[i]) ||
-          null
+          '*'
         deps[i] = {
           version,
-          path: i.startsWith('mif-demo') ? null : `./auto-import-${i}.mif.js`
+          path: i.startsWith('mif-demo') ? '*' : `./auto-import-${i}.mif.js`
         }
       }
       

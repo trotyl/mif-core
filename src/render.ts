@@ -1,7 +1,7 @@
 import { Component, Context } from './component'
 
-export interface ComponentType<T> {
-  new (options: RenderOptions): Component<T>
+export interface ComponentType<T extends Component<any>> {
+  new (options: Context): T
 }
 
 export interface RenderOptions {
@@ -21,8 +21,8 @@ export const ROOT_CONTEXT: Context = {
   }
 }
 
-export function render<T>(component: ComponentType<T>, options: RenderOptions, container?: HTMLElement): Component<T> {
-  const instance = new component(options)
+export function render<T extends Component<any>>(component: ComponentType<T>, options: RenderOptions, container?: HTMLElement): T {
+  const instance = new component(options.context)
   if (container != null) {
     instance.attach(container)
   }
